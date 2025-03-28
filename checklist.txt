@@ -1,0 +1,27 @@
+// ===== CPU Scheduling Simulator (Week 1: FCFS) =====
+// ✅ STEP 1: Define Process struct or class
+//     - ID  
+//     - Arrival time
+//     - Burst time
+//     - Waiting time
+//     - Turnaround time
+
+// ✅ STEP 2: Generate or input N processes
+//     - Random arrival and burst times (or user input)
+
+// ✅ STEP 3: Sort processes by arrival time (FCFS order)
+
+// ✅ STEP 4: Calculate waiting and turnaround times
+//     - waitingTime = startTime - arrivalTime
+                        pstart + pburst - arrivaltime
+//     - turnaroundTime = finishTime - arrivalTime
+                        start + burst - arrivalTime
+
+// ✅ STEP 5: Display results
+//     - Table format: ID | Arrival | Burst | Waiting | Turnaround
+
+// ✅ STEP 6: Calculate and display average waiting and turnaround times
+
+// BONUS:
+// ☐ Handle edge cases (e.g., multiple processes arriving at the same time)
+// ☐ Allow rerunning the simulation without restarting the program
