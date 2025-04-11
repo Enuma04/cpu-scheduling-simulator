@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=enuot
-Date                   :=28/03/2025
+Date                   :=11/04/2025
 CodeLitePath           :="C:/Program Files/CodeLite"
 MakeDirCommand         :=mkdir -p
 LinkerName             :=C:/cygwin64/bin/g++.exe
@@ -64,7 +64,7 @@ AS       := C:/cygwin64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Process.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Process.cpp$(ObjectSuffix) $(IntermediateDirectory)/fcfs.cpp$(ObjectSuffix) $(IntermediateDirectory)/SJF.cpp$(ObjectSuffix) 
 
 
 
@@ -110,6 +110,22 @@ $(IntermediateDirectory)/Process.cpp$(DependSuffix): Process.cpp
 
 $(IntermediateDirectory)/Process.cpp$(PreprocessSuffix): Process.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Process.cpp$(PreprocessSuffix) Process.cpp
+
+$(IntermediateDirectory)/fcfs.cpp$(ObjectSuffix): fcfs.cpp $(IntermediateDirectory)/fcfs.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/enuot/CPlusWorkspace/CpuSchedulingSimulator/CpuSchedulingSimulator/fcfs.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/fcfs.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/fcfs.cpp$(DependSuffix): fcfs.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/fcfs.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/fcfs.cpp$(DependSuffix) -MM fcfs.cpp
+
+$(IntermediateDirectory)/fcfs.cpp$(PreprocessSuffix): fcfs.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/fcfs.cpp$(PreprocessSuffix) fcfs.cpp
+
+$(IntermediateDirectory)/SJF.cpp$(ObjectSuffix): SJF.cpp $(IntermediateDirectory)/SJF.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/enuot/CPlusWorkspace/CpuSchedulingSimulator/CpuSchedulingSimulator/SJF.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/SJF.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/SJF.cpp$(DependSuffix): SJF.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/SJF.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/SJF.cpp$(DependSuffix) -MM SJF.cpp
+
+$(IntermediateDirectory)/SJF.cpp$(PreprocessSuffix): SJF.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/SJF.cpp$(PreprocessSuffix) SJF.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

@@ -93,6 +93,10 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="SJF.cpp"/>
+    <File Name="SJF.h"/>
+    <File Name="fcfs.cpp"/>
+    <File Name="fcfs.h"/>
     <File Name="checklist.txt"/>
     <File Name="Process.cpp"/>
     <File Name="Process.h"/>

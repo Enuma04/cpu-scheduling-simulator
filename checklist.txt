@@ -25,3 +25,32 @@
 // BONUS:
 // ☐ Handle edge cases (e.g., multiple processes arriving at the same time)
 // ☐ Allow rerunning the simulation without restarting the program
+
+
+
+
+// ===== Week 2: SJF (Shortest Job First - Non-Preemptive) =====
+// ✅ STEP 1: Create a runSJF(Process arr[], int size) function
+// ✅ STEP 2: Sort original array by arrival time (if not already sorted)
+// ✅ STEP 3: Initialize a scheduled[] array or vector<bool> to track processed tasks
+
+// 🔁 LOOP: While not all processes are scheduled:
+//     - Find all processes that have arrived by currentTime and are not yet scheduled
+//     - From those, pick the one with the shortest burst time
+//     - Set:
+//         - start time = max(currentTime, arrivalTime)
+//         - finish time = start + burst
+//         - waiting time = start - arrival
+//         - turnaround time = finish - arrival
+//     - Mark process as scheduled
+//     - Update currentTime = finish time of scheduled process
+
+// ✅ STEP 4: Display result table:
+//     Process | Arrival | Burst | Start | Waiting | Turnaround | Finish
+
+// ✅ STEP 5: Calculate and display average waiting and turnaround time
+
+// OPTIONAL:
+// ☐ Compare with FCFS using same data
+// ☐ Handle ties by picking the earliest arrival time
+// ☐ Show Gantt-style timeline (if time allows)
