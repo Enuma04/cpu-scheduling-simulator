@@ -13,6 +13,8 @@ class Process
         int turnAround;
         int startTime;
         int finishTime;
+        int remainingTime;
+
         
     public:
         Process(int arrivalTime, int burstTime);
@@ -33,6 +35,8 @@ class Process
         int getStart() const;
         void setFinish(int n);
         int getFinish() const;
+        int getRemainingTime() const;
+        void setRemainingTime(int n);
 };
 
 #endif // _PROCESS_

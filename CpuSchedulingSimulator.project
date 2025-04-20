@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="CpuSchedulingSimulator" Version="11000" InternalType="User templates">
-  <VirtualDirectory Name="images">
-    <File Name="../../../Downloads/SJF_Results.png"/>
-  </VirtualDirectory>
   <Description/>
   <Dependencies/>
   <Settings Type="Executable">
@@ -96,6 +93,8 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="RR.cpp"/>
+    <File Name="RR.h"/>
     <File Name="SJF.cpp"/>
     <File Name="SJF.h"/>
     <File Name="fcfs.cpp"/>

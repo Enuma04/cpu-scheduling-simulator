@@ -2,7 +2,7 @@
 
 #include <string>
 Process::Process(int aT, int bT): arrivalTime(aT), burstTime(bT){}
-Process::Process(){id = arrivalTime = burstTime = waitingTime = turnAround = startTime = finishTime = 0;}
+Process::Process(){id = arrivalTime = burstTime = waitingTime = turnAround = finishTime = 0, startTime=-1;}
 Process::~Process(){}
 
 void Process::setId(int n){
@@ -54,4 +54,10 @@ void Process::setFinish(int n){
 }
 int Process::getFinish() const{
     return finishTime;
+}
+int Process::getRemainingTime() const{
+    return remainingTime;
+}
+void Process::setRemainingTime(int n){
+    remainingTime = n;
 }

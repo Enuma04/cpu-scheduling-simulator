@@ -31,6 +31,7 @@ int main() {
 //        
 //        Process process{arrivalTime, burstTime};
 //        process.setId(id);
+//        process.setRemainingTime(burstTime);
 //
 //        arr[size] = process;
 //        size++;
@@ -51,6 +52,7 @@ int main() {
 
         Process process{arrivalTime, burstTime};
         process.setId(idVec);
+        process.setRemainingTime(burstTime);
         
         processVec.push_back(process); // Add to vector
     }

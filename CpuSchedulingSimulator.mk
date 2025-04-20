@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=enuot
-Date                   :=11/04/2025
+Date                   :=19/04/2025
 CodeLitePath           :="C:/Program Files/CodeLite"
 MakeDirCommand         :=mkdir -p
 LinkerName             :=C:/cygwin64/bin/g++.exe
@@ -64,7 +64,7 @@ AS       := C:/cygwin64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Process.cpp$(ObjectSuffix) $(IntermediateDirectory)/fcfs.cpp$(ObjectSuffix) $(IntermediateDirectory)/SJF.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/RR.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Process.cpp$(ObjectSuffix) $(IntermediateDirectory)/fcfs.cpp$(ObjectSuffix) $(IntermediateDirectory)/SJF.cpp$(ObjectSuffix) 
 
 
 
@@ -95,6 +95,14 @@ PreBuild:
 ##
 ## Objects
 ##
+$(IntermediateDirectory)/RR.cpp$(ObjectSuffix): RR.cpp $(IntermediateDirectory)/RR.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/enuot/CPlusWorkspace/CpuSchedulingSimulator/CpuSchedulingSimulator/RR.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/RR.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/RR.cpp$(DependSuffix): RR.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/RR.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/RR.cpp$(DependSuffix) -MM RR.cpp
+
+$(IntermediateDirectory)/RR.cpp$(PreprocessSuffix): RR.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/RR.cpp$(PreprocessSuffix) RR.cpp
+
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/enuot/CPlusWorkspace/CpuSchedulingSimulator/CpuSchedulingSimulator/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
