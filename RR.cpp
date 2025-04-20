@@ -4,6 +4,7 @@
 #include <queue>
 #include <cstdlib>  
 #include <algorithm>
+#include <iostream>
 RR::RR()
 {
     MAXTIME = 2;
@@ -41,26 +42,36 @@ std::vector<Process> RR::simulate(std::vector<Process> processes){
     
     std::sort(processes.begin(), processes.end(), [](const Process& a, const Process& b) {
         return a.getArrivalTime() < b.getArrivalTime();});
+    long unsigned int nextArrivalIndex = 0;
     
     int currentTime = processes[0].getArrivalTime();
    
-    while(!readyQueue.empty() || !processes.empty()){
-        while (!processes.empty() && processes[0].getArrivalTime() <= currentTime){
-            readyQueue.push(&processes[0]);
-            processes.erase(processes.begin());
+    while(!readyQueue.empty() || nextArrivalIndex < processes.size()){
+//        if (!processes.empty()){
+//            while (!processes.empty() && processes[0].getArrivalTime() <= currentTime){
+//                readyQueue.push(&processes[0]);
+//                processes.erase(processes.begin());
+//            }
+//            
+//        }
+
+        while (nextArrivalIndex < processes.size() &&
+            processes[nextArrivalIndex].getArrivalTime() <= currentTime) {
+            readyQueue.push(&processes[nextArrivalIndex]);
+            nextArrivalIndex++;
         }
-               if (readyQueue.empty()) {
-            currentTime = processes[0].getArrivalTime();
+        if (readyQueue.empty() && !processes.empty()) {
+            currentTime = processes[nextArrivalIndex].getArrivalTime();
             continue;
         }
         int remainingTime = readyQueue.front()->getRemainingTime();
         int quantum = std::min(remainingTime, MAXTIME) ;
-        if(readyQueue.front()->getStart() == -1){
-            readyQueue.front()->setStart(currentTime);
+        Process* current = readyQueue.front();
+
+        if(current->getStart() == -1){
+            current->setStart(currentTime);
         }
         currentTime += quantum;
-        
-        Process* current = readyQueue.front();
         readyQueue.pop(); 
         if(remainingTime <= MAXTIME){
             current->setRemainingTime(0);

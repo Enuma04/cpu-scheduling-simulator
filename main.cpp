@@ -5,6 +5,7 @@
 #include "Process.h"
 #include "fcfs.h"
 #include "SJF.h"
+#include "RR.h"
 #include <string>
 #include <algorithm>
 #include <vector>
@@ -49,7 +50,6 @@ int main() {
 
         cout << "process has been created with arrival time " << arrivalTime;
         cout << " and burst time " << burstTime << endl;
-
         Process process{arrivalTime, burstTime};
         process.setId(idVec);
         process.setRemainingTime(burstTime);
@@ -64,11 +64,14 @@ int main() {
     SJF sjfAlgo;
     std::vector<Process> sjfList = sjfAlgo.simulate(processVec);
     
+    RR RRAlgo;
+    std::vector<Process> RRList = RRAlgo.simulate(processVec);
+    
     /***********************************DISPLAY*********************************/
     cout << endl;
     cout << "Process | Arrival | Burst | Start | Waiting | Turnaround | Finish" << endl;
     
-    for(auto process: sjfList){
+    for(auto process: RRList){
         cout << process.getId()<<"     " << " | " <<process.getArrivalTime()<< "      " << " | ";
         cout << process.getBurstTime()<<"    " << " | " <<process.getStart()<< "    " << " | ";
         cout << process.getWaitingTime()<<"     " << " | " ;

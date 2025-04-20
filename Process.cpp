@@ -1,8 +1,11 @@
 #include "Process.h"
 
 #include <string>
-Process::Process(int aT, int bT): arrivalTime(aT), burstTime(bT){}
-Process::Process(){id = arrivalTime = burstTime = waitingTime = turnAround = finishTime = 0, startTime=-1;}
+Process::Process(int aT, int bT): arrivalTime(aT), burstTime(bT), id(""),waitingTime(0),
+      turnAround(0), startTime(-1), finishTime(0), remainingTime(bT){}
+Process::Process()
+    : id(""), arrivalTime(0), burstTime(0), waitingTime(0), 
+      turnAround(0), finishTime(0), startTime(-1), remainingTime(0) {}
 Process::~Process(){}
 
 void Process::setId(int n){
